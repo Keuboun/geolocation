@@ -5,7 +5,7 @@ pipeline {
   maven 'M2_HOME'
     }
     triggers {
-  pollSCM '* * * * *'
+  pollSCM ('* * * * *')
     }
     stages {
         stage('maven package') {
@@ -20,12 +20,7 @@ pipeline {
             steps {
                 sh 'mvn test'
             }
-        }
-          stage('test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
+        
           stage('deploy') {
             steps {
                 echo 'deploy'
